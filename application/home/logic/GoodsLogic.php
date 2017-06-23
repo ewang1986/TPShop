@@ -40,7 +40,9 @@ class GoodsLogic extends Model
 
         $goods_id_str = implode(',', $goods_id_arr);
         $goods_id_str = $goods_id_str ? $goods_id_str : '0';
-        $list_brand = M('brand')->where("id in(select brand_id from " .C('database.prefix') . "goods where brand_id > 0 and goods_id in(:goods_id_str))")->bind(['goods_id_str'=>$goods_id_str])->limit('30')->select();  //where("goods_id in($goods_id_str)")->select();
+        $list_brand = M('brand')->where("id in(select brand_id from " .C('database.prefix') .
+            "goods where brand_id > 0 and goods_id in(:goods_id_str))")
+            ->bind(['goods_id_str'=>$goods_id_str])->limit('30')->select();  //where("goods_id in($goods_id_str)")->select();
 
         foreach ($list_brand as $k => $v) {
             // 帅选参数
@@ -50,7 +52,6 @@ class GoodsLogic extends Model
         if ($mode == 1) return $list_brand;
         return array('status' => 1, 'msg' => '', 'result' => $list_brand);
     }
-
 
     /**
      * @param $goods_id_arr
@@ -85,7 +86,7 @@ class GoodsLogic extends Model
             $list_spec[$spec_item[$v]['spec_id']]['name'] = $spec[$spec_item[$v]['spec_id']];
             //$list_spec[$spec_item[$v]['spec_id']]['item'][$v] = $spec_item[$v]['item'];
 
-            // 帅选参数
+            //筛选参数
             if (!empty($old_spec))
                 $filter_param['spec'] = $old_spec . '@' . $spec_item[$v]['spec_id'] . '_' . $v;
             else
@@ -723,5 +724,3 @@ class GoodsLogic extends Model
         return $freight;
     }
 }
-
- 
