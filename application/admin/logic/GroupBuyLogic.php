@@ -20,6 +20,7 @@ use think\db;
 
 /**
  * 团购逻辑定义
+ *
  * Class CatsLogic
  * @package admin\Logic
  */
@@ -67,6 +68,7 @@ class GroupBuyLogic extends Model
         }
         return $promotionInfo;
     }
+
     /**
      * 获取团购剩余库存
      */
