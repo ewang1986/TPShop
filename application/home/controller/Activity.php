@@ -44,7 +44,6 @@ class Activity extends Base
 
         $goods = M('Goods')->where("goods_id", $goods_id)->find();
         $goods_images_list = M('GoodsImages')->where("goods_id", $goods_id)->select(); // 商品 图册
-
         $goods_attribute = M('GoodsAttribute')->getField('attr_id,attr_name'); // 查询属性
         $goods_attr_list = M('GoodsAttr')->where("goods_id", $goods_id)->select(); // 查询商品属性表
 

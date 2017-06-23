@@ -54,7 +54,6 @@ class UsersLogic extends Model
      * app端登陆
      */
     public function app_login($username,$password){
-       
     	$result = array();
         if(!$username || !$password)
            $result= array('status'=>0,'msg'=>'请填写账号或密码');
