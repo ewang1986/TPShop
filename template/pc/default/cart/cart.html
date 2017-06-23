@@ -56,8 +56,6 @@ $(document).ready(function(){
 // ajax 提交购物车
 var before_request = 1; // 上一次请求是否已经有返回来, 有才可以进行下一次请求
 function ajax_cart_list(){
-
-
 	if(before_request == 0) // 上一次请求没回来 不进行下一次请求
 	    return false;
 	before_request = 0;
